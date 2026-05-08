@@ -1,54 +1,115 @@
 import React from "react";
-import InvariLogo from "@/assets/InvariLogo.png";
+import InvariLogoText from "../../assets/InvariLogoText.png";
+import InvariMascot from "../../assets/InvariMascot.png";
 
 export default function Footer() {
+  const links = [
+    { label: "Features", href: "#features" },
+    { label: "How It Works", href: "#how-it-works" },
+    { label: "Benefits", href: "#benefits" },
+    { label: "FAQ", href: "#faq" },
+  ];
+
   return (
-    <footer className="border-t border-border py-12">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+    <footer
+      style={{
+        borderTop: "0.5px solid rgba(201, 162, 39, 0.15)",
+        padding: "56px 0 40px",
+        background: "transparent",
+      }}
+    >
+      <div
+        style={{
+          maxWidth: "1280px",
+          margin: "0 auto",
+          padding: "0 24px",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "28px",
+          }}
+        >
           {/* Logo */}
-          <div className="flex items-center">
+          <a
+            href="#"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "12px",
+              textDecoration: "none",
+            }}
+          >
             <img
-              src={InvariLogo}
-              alt="Invari Logo"
-              className="h-8 w-auto object-contain"
+              src={InvariMascot}
+              alt="Invari"
+              style={{ height: "52px", width: "auto", objectFit: "contain" }}
             />
-          </div>
+            <img
+              src={InvariLogoText}
+              alt="Invari"
+              style={{ height: "28px", width: "auto", objectFit: "contain" }}
+            />
+          </a>
 
           {/* Links */}
-          <div className="flex items-center gap-8 flex-wrap justify-center">
-            <a
-              href="#features"
-              className="text-sm font-body text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Features
-            </a>
-
-            <a
-              href="#how-it-works"
-              className="text-sm font-body text-muted-foreground hover:text-foreground transition-colors"
-            >
-              How It Works
-            </a>
-
-            <a
-              href="#benefits"
-              className="text-sm font-body text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Benefits
-            </a>
-
-            <a
-              href="#faq"
-              className="text-sm font-body text-muted-foreground hover:text-foreground transition-colors"
-            >
-              FAQ
-            </a>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "36px",
+              flexWrap: "wrap",
+              justifyContent: "center",
+            }}
+          >
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                style={{
+                  fontSize: "13px",
+                  fontWeight: 500,
+                  color: "rgba(0, 0, 0, 0.45)",
+                  textDecoration: "none",
+                  letterSpacing: "0.04em",
+                  transition: "color 0.2s ease",
+                }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.color = "#FACC15")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.color = "rgba(0, 0, 0, 0.45)")
+                }
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
 
+          {/* Divider */}
+          <div
+            style={{
+              width: "100%",
+              height: "0.5px",
+              background:
+                "linear-gradient(to right, transparent, rgba(0, 0, 0, 0.2), transparent)",
+            }}
+          />
+
           {/* Copyright */}
-          <p className="text-sm font-body text-muted-foreground text-center md:text-right">
-            © {new Date().getFullYear()} Invari. All rights reserved.
+          <p
+            style={{
+              fontSize: "12px",
+              color: "rgba(0, 0, 0, 0.3)",
+              letterSpacing: "0.06em",
+              textAlign: "center",
+              margin: 0,
+            }}
+          >
+            © {new Date().getFullYear()} Invari Inc. All rights reserved.
           </p>
         </div>
       </div>

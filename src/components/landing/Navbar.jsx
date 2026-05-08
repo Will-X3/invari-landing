@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import InvariLogo from "../../assets/InvariLogo.png";
+import InvariLogo from "../../assets/InvariLogoText.png";
+import InvariMascot from "../../assets/InvariMascot.png";
 import DemoRequestModal from "@/components/DemoRequestModal";
 
 export default function Navbar() {
@@ -25,55 +26,136 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-background/95 backdrop-blur-md shadow-sm border-b border-border"
-            : "bg-transparent"
-        }`}
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 50,
+          transition: "all 0.3s ease",
+          background: scrolled ? "rgba(10, 7, 4, 0.96)" : "transparent",
+          backdropFilter: scrolled ? "blur(12px)" : "none",
+          borderBottom: scrolled
+            ? "0.5px solid rgba(201, 162, 39, 0.2)"
+            : "none",
+          boxShadow: scrolled ? "0 4px 32px rgba(0,0,0,0.4)" : "none",
+        }}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 lg:h-20">
+        <div
+          style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px" }}
+        >
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              height: "72px",
+            }}
+          >
             {/* Logo */}
-            <a href="#" className="flex items-center">
+            <a
+              href="#"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+                textDecoration: "none",
+              }}
+            >
+              <img
+                src={InvariMascot}
+                alt="Invari"
+                style={{ height: "36px", width: "auto", objectFit: "contain" }}
+              />
               <img
                 src={InvariLogo}
-                alt="Invari Logo"
-                className="h-8 lg:h-10 w-auto object-contain"
+                alt="Invari"
+                style={{ height: "22px", width: "auto", objectFit: "contain" }}
               />
             </a>
 
             {/* Desktop Links */}
-            <div className="hidden md:flex items-center gap-8">
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "36px",
+              }}
+              className="hidden md:flex"
+            >
               {links.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="text-sm font-body font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  style={{
+                    fontSize: "13px",
+                    fontWeight: 500,
+                    color: "rgba(255,255,255,0.65)",
+                    textDecoration: "none",
+                    letterSpacing: "0.04em",
+                    transition: "color 0.2s ease",
+                  }}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.color = "#FACC15")
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.color = "rgba(255,255,255,0.65)")
+                  }
                 >
                   {link.label}
                 </a>
               ))}
             </div>
 
-            {/* Desktop Button */}
-            <div className="hidden md:flex items-center gap-3">
-              <Button
+            {/* Desktop CTA */}
+            <div className="hidden md:flex" style={{ alignItems: "center" }}>
+              <button
                 onClick={() => setDemoOpen(true)}
-                className="font-body text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-6"
+                style={{
+                  padding: "10px 24px",
+                  borderRadius: "9999px",
+                  fontSize: "13px",
+                  fontWeight: 600,
+                  letterSpacing: "0.05em",
+                  cursor: "pointer",
+                  border: "1px solid rgba(201, 162, 39, 0.5)",
+                  background:
+                    "linear-gradient(135deg, #C9A227 0%, #A8831F 100%)",
+                  color: "#0a0704",
+                  transition: "all 0.2s ease",
+                  boxShadow: "0 0 20px rgba(201,162,39,0.25)",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.boxShadow =
+                    "0 0 32px rgba(201,162,39,0.5)";
+                  e.currentTarget.style.transform = "translateY(-1px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.boxShadow =
+                    "0 0 20px rgba(201,162,39,0.25)";
+                  e.currentTarget.style.transform = "translateY(0)";
+                }}
               >
                 Request Demo
-              </Button>
+              </button>
             </div>
 
-            {/* Mobile Menu Toggle */}
+            {/* Mobile Toggle */}
             <button
               className="md:hidden"
               onClick={() => setMobileOpen(!mobileOpen)}
+              style={{
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                color: "rgba(255,255,255,0.8)",
+                padding: "4px",
+              }}
             >
               {mobileOpen ? (
-                <X className="w-6 h-6" />
+                <X style={{ width: "22px", height: "22px" }} />
               ) : (
-                <Menu className="w-6 h-6" />
+                <Menu style={{ width: "22px", height: "22px" }} />
               )}
             </button>
           </div>
@@ -81,34 +163,62 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {mobileOpen && (
-          <div className="md:hidden bg-background border-t border-border px-6 py-4 space-y-3">
-            {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="block text-sm font-body font-medium text-muted-foreground py-2"
-                onClick={() => setMobileOpen(false)}
-              >
-                {link.label}
-              </a>
-            ))}
-
-            <div className="flex flex-col gap-2 pt-2">
-              <Button
-                onClick={() => {
-                  setMobileOpen(false);
-                  setDemoOpen(true);
-                }}
-                className="font-body bg-primary text-primary-foreground rounded-full"
-              >
-                Request Demo
-              </Button>
+          <div
+            style={{
+              background: "rgba(10, 7, 4, 0.98)",
+              borderTop: "0.5px solid rgba(201, 162, 39, 0.15)",
+              padding: "16px 24px 24px",
+            }}
+            className="md:hidden"
+          >
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "4px" }}
+            >
+              {links.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  style={{
+                    display: "block",
+                    padding: "12px 0",
+                    fontSize: "14px",
+                    fontWeight: 500,
+                    color: "rgba(255,255,255,0.7)",
+                    textDecoration: "none",
+                    borderBottom: "0.5px solid rgba(255,255,255,0.06)",
+                    transition: "color 0.2s",
+                  }}
+                >
+                  {link.label}
+                </a>
+              ))}
             </div>
+
+            <button
+              onClick={() => {
+                setMobileOpen(false);
+                setDemoOpen(true);
+              }}
+              style={{
+                marginTop: "20px",
+                width: "100%",
+                padding: "12px",
+                borderRadius: "9999px",
+                fontSize: "14px",
+                fontWeight: 600,
+                cursor: "pointer",
+                border: "1px solid rgba(201, 162, 39, 0.4)",
+                background: "linear-gradient(135deg, #C9A227 0%, #A8831F 100%)",
+                color: "#0a0704",
+              }}
+            >
+              Request Demo
+            </button>
           </div>
         )}
       </nav>
 
-      {/* Modal — placed outside nav for stability */}
       <DemoRequestModal open={demoOpen} onClose={() => setDemoOpen(false)} />
     </>
   );
