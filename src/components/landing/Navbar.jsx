@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import InvariLogo from "../../assets/InvariLogoText.png";
+import InvariLogo from "../../assets/logo.png";
 import InvariMascot from "../../assets/InvariMascot.png";
 import DemoRequestModal from "@/components/DemoRequestModal";
 
@@ -70,7 +70,7 @@ export default function Navbar() {
               <img
                 src={InvariLogo}
                 alt="Invari"
-                style={{ height: "22px", width: "auto", objectFit: "contain" }}
+                style={{ height: "42px", width: "auto", objectFit: "contain", marginLeft:"-35px", }}
               />
             </a>
 
