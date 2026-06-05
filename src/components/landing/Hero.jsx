@@ -21,52 +21,6 @@ export default function Hero() {
         }}
       >
         {/* Background glows */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            overflow: "hidden",
-            pointerEvents: "none",
-          }}
-        >
-          <div
-            style={{
-              position: "absolute",
-              top: "25%",
-              right: "-8rem",
-              width: "24rem",
-              height: "24rem",
-              borderRadius: "9999px",
-              background: "rgba(201,162,39,0.06)",
-              filter: "blur(80px)",
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              bottom: "25%",
-              left: "-8rem",
-              width: "20rem",
-              height: "20rem",
-              borderRadius: "9999px",
-              background: "rgba(168,131,31,0.08)",
-              filter: "blur(80px)",
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              width: "600px",
-              height: "600px",
-              borderRadius: "9999px",
-              background: "rgba(201,162,39,0.03)",
-              filter: "blur(100px)",
-            }}
-          />
-        </div>
 
         <div
           style={{
@@ -98,7 +52,7 @@ export default function Hero() {
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "8px",
-                  background: "rgba(201,162,39,0.08)",
+                  background: "rgba(83, 67, 15, 0.08)",
                   border: "0.5px solid rgba(201,162,39,0.25)",
                   borderRadius: "9999px",
                   padding: "6px 16px",
@@ -257,7 +211,7 @@ export default function Hero() {
                       alignItems: "center",
                       gap: "8px",
                       fontSize: "13px",
-                      color: "rgba(255,255,255,0.45)",
+                      color: "rgba(2, 1, 0, 0.69)",
                     }}
                   >
                     <Icon
