@@ -19,6 +19,7 @@ export default function Navbar() {
   const links = [
     { label: "Features", href: "#features" },
     { label: "How It Works", href: "#how-it-works" },
+    { label: "What's Included", href: "#whats-included" },
     { label: "Benefits", href: "#benefits" },
     { label: "FAQ", href: "#faq" },
   ];
@@ -33,7 +34,7 @@ export default function Navbar() {
           right: 0,
           zIndex: 50,
           transition: "all 0.3s ease",
-          background: scrolled ? "rgba(10, 7, 4, 0.96)" : "transparent",
+          background: scrolled ? "rgba(30, 16, 7, 0.97)" : "transparent",
           backdropFilter: scrolled ? "blur(12px)" : "none",
           borderBottom: scrolled
             ? "0.5px solid rgba(201, 162, 39, 0.2)"
@@ -70,7 +71,12 @@ export default function Navbar() {
               <img
                 src={InvariLogo}
                 alt="Invari"
-                style={{ height: "42px", width: "auto", objectFit: "contain", marginLeft:"-35px", }}
+                style={{
+                  height: "42px",
+                  width: "auto",
+                  objectFit: "contain",
+                  marginLeft: "-35px",
+                }}
               />
             </a>
 
@@ -123,16 +129,11 @@ export default function Navbar() {
                     "linear-gradient(135deg, #C9A227 0%, #A8831F 100%)",
                   color: "#0a0704",
                   transition: "all 0.2s ease",
-                  boxShadow: "0 0 20px rgba(201,162,39,0.25)",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.boxShadow =
-                    "0 0 32px rgba(201,162,39,0.5)";
                   e.currentTarget.style.transform = "translateY(-1px)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.boxShadow =
-                    "0 0 20px rgba(201,162,39,0.25)";
                   e.currentTarget.style.transform = "translateY(0)";
                 }}
               >
@@ -165,7 +166,7 @@ export default function Navbar() {
         {mobileOpen && (
           <div
             style={{
-              background: "rgba(10, 7, 4, 0.98)",
+              background: "rgba(30, 16, 7, 0.99)",
               borderTop: "0.5px solid rgba(201, 162, 39, 0.15)",
               padding: "16px 24px 24px",
             }}

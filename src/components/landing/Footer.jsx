@@ -6,6 +6,7 @@ export default function Footer() {
   const links = [
     { label: "Features", href: "#features" },
     { label: "How It Works", href: "#how-it-works" },
+    { label: "What's Included", href: "#whats-included" },
     { label: "Benefits", href: "#benefits" },
     { label: "FAQ", href: "#faq" },
   ];
@@ -13,16 +14,32 @@ export default function Footer() {
   return (
     <footer
       style={{
-        borderTop: "0.5px solid rgba(201, 162, 39, 0.15)",
+        background:
+          "linear-gradient(135deg, #2C1A0E 0%, #3D2314 40%, #52300F 70%, #6B3F1A 100%)",
+        borderTop: "0.5px solid rgba(201, 162, 39, 0.25)",
         padding: "56px 0 40px",
-        background: "transparent",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
+      {/* Subtle warm sheen overlay */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "radial-gradient(ellipse at 50% 0%, rgba(201,162,39,0.08) 0%, transparent 65%)",
+          pointerEvents: "none",
+        }}
+      />
+
       <div
         style={{
           maxWidth: "1280px",
           margin: "0 auto",
           padding: "0 24px",
+          position: "relative",
+          zIndex: 1,
         }}
       >
         <div
@@ -72,16 +89,14 @@ export default function Footer() {
                 style={{
                   fontSize: "13px",
                   fontWeight: 500,
-                  color: "rgba(0, 0, 0, 0.45)",
+                  color: "rgba(255, 220, 180, 0.5)",
                   textDecoration: "none",
                   letterSpacing: "0.04em",
                   transition: "color 0.2s ease",
                 }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.color = "#FACC15")
-                }
+                onMouseEnter={(e) => (e.currentTarget.style.color = "#FACC15")}
                 onMouseLeave={(e) =>
-                  (e.currentTarget.style.color = "rgba(0, 0, 0, 0.45)")
+                  (e.currentTarget.style.color = "rgba(255, 220, 180, 0.5)")
                 }
               >
                 {link.label}
@@ -95,7 +110,7 @@ export default function Footer() {
               width: "100%",
               height: "0.5px",
               background:
-                "linear-gradient(to right, transparent, rgba(0, 0, 0, 0.2), transparent)",
+                "linear-gradient(to right, transparent, rgba(201,162,39,0.3), transparent)",
             }}
           />
 
@@ -103,13 +118,13 @@ export default function Footer() {
           <p
             style={{
               fontSize: "12px",
-              color: "rgba(0, 0, 0, 0.3)",
+              color: "rgba(255, 220, 180, 0.3)",
               letterSpacing: "0.06em",
               textAlign: "center",
               margin: 0,
             }}
           >
-            © {new Date().getFullYear()} Invari Inc. All rights reserved.
+            © {new Date().getFullYear()} Invari Systems. All rights reserved.
           </p>
         </div>
       </div>

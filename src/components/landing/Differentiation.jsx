@@ -1,68 +1,132 @@
-import React from 'react';
+import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+
+const rows = [
+  {
+    dimension: "Enforcement timing",
+    traditional: "After the fact",
+    invari: "Before persistence",
+    invariDetail:
+      "Invalid actions are blocked before any record is written — not flagged in a review cycle.",
+  },
+  {
+    dimension: "Bound book entries",
+    traditional: "Manual, error-prone",
+    invari: "Automatic, both parties",
+    invariDetail:
+      "Transfers update both acquisition and disposition records simultaneously — correct and complete in 15 seconds.",
+  },
+  {
+    dimension: "ERP system",
+    traditional: "$8,000–$15,000/mo separate cost",
+    invari: "Included free",
+    invariDetail:
+      "Every operational function — inventory, transfers, personnel, orders — governed by the same compliance engine at no additional charge.",
+  },
+  {
+    dimension: "Audit record",
+    traditional: "Log of what occurred",
+    invari: "Proof of what was enforced",
+    invariDetail:
+      "Immutable, cryptographically hash-chained artifacts with full policy execution trace. Not a log — a proof.",
+  },
+  {
+    dimension: "Policy conflict resolution",
+    traditional: "Staff interpretation",
+    invari: "Always most restrictive valid outcome",
+    invariDetail:
+      "Ambiguity never defaults to lenient. K=STRICT ensures conflicting rules resolve to the most restrictive valid interpretation — every time.",
+  },
+];
 
 export default function Differentiation() {
   return (
     <section className="py-24 lg:py-32 bg-secondary/50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="text-xs font-body font-semibold text-primary tracking-widest uppercase">The Difference</span>
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 text-foreground leading-tight">
-              Not Another Compliance Tool —{' '}
-              <span className="text-primary">A Compliance Engine</span>
-            </h2>
-            <p className="mt-6 text-lg font-body text-muted-foreground leading-relaxed">
-              Most systems record actions. Invari prevents invalid ones. Instead of detecting errors after they happen, Invari blocks them before they exist.
-            </p>
-            <p className="mt-4 text-base font-body text-foreground/80 leading-relaxed">
-              That difference is what makes compliance reliable.
-            </p>
-          </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <span className="text-xs font-body font-semibold text-primary tracking-widest uppercase">
+            The Difference
+          </span>
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 text-foreground leading-tight">
+            Not Another Compliance Tool —{" "}
+            <span className="text-primary">A Compliance Engine</span>
+          </h2>
+          <p className="mt-4 text-lg font-body text-muted-foreground max-w-2xl mx-auto">
+            Every existing tool works the same way: allow the action, assess
+            compliance after. Invari is a categorically different architecture.
+          </p>
+        </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-5"
-          >
-            <div className="bg-card border border-border rounded-2xl p-6">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-3 h-3 rounded-full bg-muted-foreground/30" />
-                <span className="font-body text-sm font-semibold text-muted-foreground">Traditional Tools</span>
-              </div>
-              <div className="space-y-2">
-                {["Record actions after they happen", "Detect errors in post-review", "Rely on user training", "Generate reports from flawed data"].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3 text-sm font-body text-muted-foreground">
-                    <span className="text-destructive">✗</span>
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </div>
+        {/* Table header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="grid grid-cols-3 gap-4 mb-3 px-2"
+        >
+          <div />
+          <div className="text-center">
+            <span className="font-body text-xs font-semibold text-muted-foreground tracking-widest uppercase">
+              Traditional Tools
+            </span>
+          </div>
+          <div className="text-center">
+            <span className="font-body text-xs font-semibold text-primary tracking-widest uppercase">
+              Invari
+            </span>
+          </div>
+        </motion.div>
 
-            <div className="bg-card border-2 border-primary/30 rounded-2xl p-6 shadow-lg shadow-primary/5">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-3 h-3 rounded-full bg-primary" />
-                <span className="font-body text-sm font-semibold text-primary">Invari</span>
+        {/* Rows */}
+        <div className="space-y-3">
+          {rows.map((row, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+              className="grid grid-cols-3 gap-4 items-start bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/20 transition-all duration-300"
+            >
+              {/* Dimension */}
+              <div className="px-6 py-5 border-r border-border">
+                <span className="font-body text-sm font-semibold text-foreground">
+                  {row.dimension}
+                </span>
               </div>
-              <div className="space-y-2">
-                {["Validate actions before they execute", "Block errors before they exist", "Guide users to valid actions only", "Produce audit-ready records by design"].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3 text-sm font-body text-foreground">
-                    <span className="text-primary">✓</span>
-                    {item}
-                  </div>
-                ))}
+
+              {/* Traditional */}
+              <div className="px-6 py-5 border-r border-border flex items-start gap-2">
+                <span className="text-destructive mt-0.5 flex-shrink-0">✗</span>
+                <span className="font-body text-sm text-muted-foreground">
+                  {row.traditional}
+                </span>
               </div>
-            </div>
-          </motion.div>
+
+              {/* Invari */}
+              <div
+                className="px-6 py-5 flex flex-col gap-1"
+                style={{ background: "rgba(201,162,39,0.03)" }}
+              >
+                <div className="flex items-start gap-2">
+                  <span className="text-primary mt-0.5 flex-shrink-0">✓</span>
+                  <span className="font-body text-sm font-semibold text-foreground">
+                    {row.invari}
+                  </span>
+                </div>
+                <p className="font-body text-xs text-muted-foreground leading-relaxed pl-5">
+                  {row.invariDetail}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
