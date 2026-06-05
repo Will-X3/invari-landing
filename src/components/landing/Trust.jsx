@@ -171,18 +171,7 @@ export default function Trust() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="mt-12 text-center"
-        >
-          <p className="font-body text-sm text-muted-foreground max-w-xl mx-auto">
-            No customers yet — by design. The pilot is how we earn the first
-            one.{" "}
-            <span
-              className="font-medium"
-              style={{ color: "hsl(var(--foreground))" }}
-            >
-              If the audit cycle doesn't prove it, you don't pay.
-            </span>
-          </p>
-        </motion.div>
+        ></motion.div>
       </div>
     </section>
   );
