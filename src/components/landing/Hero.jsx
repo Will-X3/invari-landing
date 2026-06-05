@@ -20,8 +20,6 @@ export default function Hero() {
           paddingTop: "80px",
         }}
       >
-        {/* Background glows */}
-
         <div
           style={{
             position: "relative",
@@ -52,7 +50,7 @@ export default function Hero() {
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "8px",
-                  background: "rgba(83, 67, 15, 0.08)",
+                  background: "rgba(201,162,39,0.08)",
                   border: "0.5px solid rgba(201,162,39,0.25)",
                   borderRadius: "9999px",
                   padding: "6px 16px",
@@ -126,6 +124,7 @@ export default function Hero() {
                   marginBottom: "48px",
                 }}
               >
+                {/* Primary CTA */}
                 <button
                   onClick={() => setDemoOpen(true)}
                   style={{
@@ -141,24 +140,24 @@ export default function Hero() {
                     background:
                       "linear-gradient(135deg, #C9A227 0%, #A8831F 100%)",
                     color: "#0a0704",
-                    boxShadow: "0 0 32px rgba(201,162,39,0.3)",
                     transition: "all 0.2s ease",
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow =
-                      "0 0 48px rgba(201,162,39,0.5)";
                     e.currentTarget.style.transform = "translateY(-2px)";
+                    e.currentTarget.style.background =
+                      "linear-gradient(135deg, #FACC15 0%, #C9A227 100%)";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.boxShadow =
-                      "0 0 32px rgba(201,162,39,0.3)";
                     e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.background =
+                      "linear-gradient(135deg, #C9A227 0%, #A8831F 100%)";
                   }}
                 >
                   Request Demo
                   <ArrowRight style={{ width: "16px", height: "16px" }} />
                 </button>
 
+                {/* Secondary CTA — chocolate palette */}
                 <button
                   style={{
                     display: "flex",
@@ -169,20 +168,21 @@ export default function Hero() {
                     fontSize: "15px",
                     fontWeight: 600,
                     cursor: "pointer",
-                    border: "0.5px solid rgba(255,255,255,0.15)",
-                    background: "rgba(255,255,255,0.05)",
-                    color: "rgba(255,255,255,0.8)",
+                    border: "1px solid rgba(201,162,39,0.3)",
+                    background:
+                      "linear-gradient(135deg, #2C1A0E 0%, #3D2314 100%)",
+                    color: "rgba(255,220,180,0.85)",
                     transition: "all 0.2s ease",
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.background = "rgba(255,255,255,0.1)";
-                    e.currentTarget.style.borderColor =
-                      "rgba(255,255,255,0.25)";
+                    e.currentTarget.style.transform = "translateY(-2px)";
+                    e.currentTarget.style.borderColor = "rgba(201,162,39,0.55)";
+                    e.currentTarget.style.color = "#FACC15";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.background = "rgba(255,255,255,0.05)";
-                    e.currentTarget.style.borderColor =
-                      "rgba(255,255,255,0.15)";
+                    e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.borderColor = "rgba(201,162,39,0.3)";
+                    e.currentTarget.style.color = "rgba(255,220,180,0.85)";
                   }}
                 >
                   <Play style={{ width: "14px", height: "14px" }} />
@@ -211,7 +211,7 @@ export default function Hero() {
                       alignItems: "center",
                       gap: "8px",
                       fontSize: "13px",
-                      color: "rgba(2, 1, 0, 0.69)",
+                      color: "rgba(0, 0, 0, 0.5)",
                     }}
                   >
                     <Icon
@@ -244,8 +244,7 @@ export default function Hero() {
                   padding: "24px",
                   position: "relative",
                   zIndex: 10,
-                  boxShadow:
-                    "0 32px 80px rgba(0,0,0,0.5), 0 0 60px rgba(201,162,39,0.06)",
+                  boxShadow: "0 32px 80px rgba(0,0,0,0.5)",
                   backdropFilter: "blur(12px)",
                 }}
               >
@@ -363,25 +362,21 @@ export default function Hero() {
                       {[
                         {
                           label: "Received",
-                          active: true,
                           color: "rgba(96,165,250,0.15)",
                           text: "#93c5fd",
                         },
                         {
                           label: "Inspected",
-                          active: true,
                           color: "rgba(129,140,248,0.15)",
                           text: "#a5b4fc",
                         },
                         {
                           label: "In Stock",
-                          active: true,
                           color: "rgba(74,222,128,0.15)",
                           text: "#86efac",
                         },
                         {
                           label: "Transfer",
-                          active: false,
                           color: "rgba(255,255,255,0.04)",
                           text: "rgba(255,255,255,0.25)",
                         },
@@ -514,7 +509,7 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* Floating Live Badge */}
+              {/* Floating Live Badge — glow removed */}
               <div
                 style={{
                   position: "absolute",
@@ -538,7 +533,6 @@ export default function Hero() {
                     height: "8px",
                     borderRadius: "9999px",
                     background: "#4ade80",
-                    boxShadow: "0 0 8px rgba(74,222,128,0.6)",
                     animation: "pulse 2s infinite",
                   }}
                 />
