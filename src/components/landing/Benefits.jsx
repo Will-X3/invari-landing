@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   ShieldCheck,
@@ -55,6 +55,99 @@ const benefits = [
   },
 ];
 
+function BenefitCard({ b, delay }) {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className="rounded-2xl p-7 flex flex-col cursor-default"
+      style={{
+        background: hovered
+          ? "linear-gradient(135deg, #2C1A0E 0%, #3D2314 50%, #52300F 100%)"
+          : undefined,
+        border: hovered
+          ? "1px solid rgba(201,162,39,0.35)"
+          : "1px solid hsl(var(--border))",
+        boxShadow: hovered ? "0 20px 60px rgba(0,0,0,0.3)" : undefined,
+        transition: "all 0.3s ease",
+      }}
+    >
+      {/* Icon + stat row */}
+      <div className="flex items-start justify-between gap-4 mb-5">
+        <div
+          className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+          style={{
+            background: hovered
+              ? "rgba(201,162,39,0.15)"
+              : "rgba(var(--primary), 0.1)",
+            transition: "background 0.3s ease",
+          }}
+        >
+          <b.icon
+            className="w-5 h-5"
+            style={{
+              color: hovered ? "#FACC15" : "hsl(var(--primary))",
+              transition: "color 0.3s ease",
+            }}
+          />
+        </div>
+        <div className="text-right">
+          <p
+            className="font-heading text-xl font-bold leading-none"
+            style={{
+              color: hovered ? "#FACC15" : "hsl(var(--primary))",
+              transition: "color 0.3s ease",
+            }}
+          >
+            {b.stat}
+          </p>
+          <p
+            className="font-body text-xs mt-1 leading-tight"
+            style={{
+              color: hovered
+                ? "rgba(255,220,180,0.5)"
+                : "hsl(var(--muted-foreground))",
+              transition: "color 0.3s ease",
+            }}
+          >
+            {b.statLabel}
+          </p>
+        </div>
+      </div>
+
+      {/* Title */}
+      <h3
+        className="font-heading text-base font-bold mb-3"
+        style={{
+          color: hovered ? "#fff" : "hsl(var(--foreground))",
+          transition: "color 0.3s ease",
+        }}
+      >
+        {b.title}
+      </h3>
+
+      {/* Description */}
+      <p
+        className="font-body text-sm leading-relaxed"
+        style={{
+          color: hovered
+            ? "rgba(255,220,180,0.7)"
+            : "hsl(var(--muted-foreground))",
+          transition: "color 0.3s ease",
+        }}
+      >
+        {b.desc}
+      </p>
+    </motion.div>
+  );
+}
+
 export default function Benefits() {
   return (
     <section id="benefits" className="py-24 lg:py-32 bg-secondary/50">
@@ -81,34 +174,7 @@ export default function Benefits() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {benefits.map((b, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="bg-card border border-border rounded-2xl p-7 hover:border-primary/30 transition-all duration-300 flex flex-col"
-            >
-              <div className="flex items-start justify-between gap-4 mb-5">
-                <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <b.icon className="w-5 h-5 text-primary" />
-                </div>
-                <div className="text-right">
-                  <p className="font-heading text-xl font-bold text-primary leading-none">
-                    {b.stat}
-                  </p>
-                  <p className="font-body text-xs text-muted-foreground mt-1 leading-tight">
-                    {b.statLabel}
-                  </p>
-                </div>
-              </div>
-              <h3 className="font-heading text-base font-bold text-foreground mb-3">
-                {b.title}
-              </h3>
-              <p className="font-body text-sm text-muted-foreground leading-relaxed">
-                {b.desc}
-              </p>
-            </motion.div>
+            <BenefitCard key={i} b={b} delay={i * 0.08} />
           ))}
         </div>
       </div>

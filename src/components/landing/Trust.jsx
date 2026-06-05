@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   FlaskConical,
@@ -17,7 +17,7 @@ const signals = [
   {
     icon: ShieldCheck,
     label: "Provisional Patent Filed",
-    desc: "Four independent claims covering the DAPA dual append-only ledger, never-null custody enforcement, divergence operational lock, and pre-outcome receipt architecture — all supported by production evidence.",
+    desc: "Five independent claims covering the DAPA dual append-only ledger, never-null custody enforcement, divergence operational lock, pre-outcome receipt architecture, and portable full-chain export — all supported by production evidence.",
   },
   {
     icon: FileCheck,
@@ -35,6 +35,84 @@ const signals = [
     desc: "Patent claim 5 covers portable full-chain export — a cryptographically verifiable, self-contained snapshot of your complete compliance history that reconstructs your entire ledger independently of Invari. Your chain of custody is yours to hold, verify, and present to any inspector without our involvement. We are not the custodian of your records. You are.",
   },
 ];
+
+const hoverStyle = {
+  background: "linear-gradient(135deg, #2C1A0E 0%, #3D2314 50%, #52300F 100%)",
+  border: "1px solid rgba(201,162,39,0.35)",
+  boxShadow: "0 20px 60px rgba(0,0,0,0.3)",
+};
+
+const defaultStyle = {
+  background: undefined,
+  border: "1px solid hsl(var(--border))",
+  boxShadow: undefined,
+};
+
+const claim5DefaultStyle = {
+  background: "rgba(201,162,39,0.03)",
+  border: "1px solid rgba(201,162,39,0.2)",
+  boxShadow: undefined,
+};
+
+function SignalCard({ item, fullWidth = false }) {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className="rounded-2xl p-8 flex gap-6 cursor-default"
+      style={{
+        ...(hovered
+          ? hoverStyle
+          : fullWidth
+            ? claim5DefaultStyle
+            : defaultStyle),
+        transition: "all 0.3s ease",
+      }}
+    >
+      <div
+        className="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center"
+        style={{
+          background: hovered
+            ? "rgba(201,162,39,0.15)"
+            : "rgba(var(--primary), 0.1)",
+          transition: "background 0.3s ease",
+        }}
+      >
+        <item.icon
+          className="w-5 h-5"
+          style={{
+            color: hovered ? "#FACC15" : "hsl(var(--primary))",
+            transition: "color 0.3s ease",
+          }}
+        />
+      </div>
+      <div>
+        <h3
+          className="font-heading text-base font-bold mb-2"
+          style={{
+            color: hovered ? "#fff" : "hsl(var(--foreground))",
+            transition: "color 0.3s ease",
+          }}
+        >
+          {item.label}
+        </h3>
+        <p
+          className="font-body text-sm leading-relaxed"
+          style={{
+            color: hovered
+              ? "rgba(255,220,180,0.7)"
+              : "hsl(var(--muted-foreground))",
+            transition: "color 0.3s ease",
+          }}
+        >
+          {item.desc}
+        </p>
+      </div>
+    </div>
+  );
+}
 
 export default function Trust() {
   return (
@@ -61,7 +139,8 @@ export default function Trust() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 gap-6 mb-12">
+        {/* 2x2 grid */}
+        <div className="grid sm:grid-cols-2 gap-6 mb-6">
           {signals.slice(0, 4).map((item, i) => (
             <motion.div
               key={i}
@@ -69,19 +148,8 @@ export default function Trust() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-card border border-border rounded-2xl p-8 hover:border-primary/30 transition-all duration-300 flex gap-6"
             >
-              <div className="flex-shrink-0 w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center">
-                <item.icon className="w-5 h-5 text-primary" />
-              </div>
-              <div>
-                <h3 className="font-heading text-base font-bold text-foreground mb-2">
-                  {item.label}
-                </h3>
-                <p className="font-body text-sm text-muted-foreground leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
+              <SignalCard item={item} />
             </motion.div>
           ))}
         </div>
@@ -92,23 +160,8 @@ export default function Trust() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="bg-card border border-border rounded-2xl p-8 hover:border-primary/30 transition-all duration-300 flex gap-6"
-          style={{
-            background: "rgba(201,162,39,0.03)",
-            borderColor: "rgba(201,162,39,0.2)",
-          }}
         >
-          <div className="flex-shrink-0 w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center">
-            <HardDriveDownload className="w-5 h-5 text-primary" />
-          </div>
-          <div>
-            <h3 className="font-heading text-base font-bold text-foreground mb-2">
-              {signals[4].label}
-            </h3>
-            <p className="font-body text-sm text-muted-foreground leading-relaxed">
-              {signals[4].desc}
-            </p>
-          </div>
+          <SignalCard item={signals[4]} fullWidth />
         </motion.div>
 
         {/* Bottom anchor line */}
@@ -118,7 +171,18 @@ export default function Trust() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="mt-12 text-center"
-        ></motion.div>
+        >
+          <p className="font-body text-sm text-muted-foreground max-w-xl mx-auto">
+            No customers yet — by design. The pilot is how we earn the first
+            one.{" "}
+            <span
+              className="font-medium"
+              style={{ color: "hsl(var(--foreground))" }}
+            >
+              If the audit cycle doesn't prove it, you don't pay.
+            </span>
+          </p>
+        </motion.div>
       </div>
     </section>
   );
