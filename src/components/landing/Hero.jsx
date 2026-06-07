@@ -109,9 +109,11 @@ export default function Hero() {
                   margin: "0 0 40px",
                 }}
               >
-                Invari enforces firearm lifecycle compliance automatically —
+                Invari enforces asset lifecycle compliance automatically —
                 preventing illegal actions before they happen and producing
-                audit-ready records by design.
+                audit-ready records by design. Built for regulated industries.
+                Currently serving firearms compliance. Expanding to medical
+                devices, controlled substances and even AI data governance.
               </p>
 
               {/* Buttons */}
