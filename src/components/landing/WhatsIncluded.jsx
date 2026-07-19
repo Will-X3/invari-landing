@@ -59,10 +59,12 @@ export default function WhatsIncluded() {
             Three Integrated Platform Layers.{" "}
             <span className="text-primary">One Unified System.</span>
           </h2>
-          <p className="mt-4 text-lg font-body text-muted-foreground max-w-2xl mx-auto">
-            Every licensed entity gets a full compliance-native ERP at no
-            additional charge — because the compliance engine already governs
-            every operation.
+          <p className="mt-4 text-lg font-body text-muted-foreground max-w-3xl mx-auto">
+            Every licensed business receives the complete Invari platform:
+            Invari.CORE, the deterministic compliance engine; Invari.DERP, the
+            compliance-native ERP; and Invari.SHOP, the regulated commerce
+            layer. Together, they unify compliance, operations, and commerce
+            into a single governed system.
           </p>
         </motion.div>
 
