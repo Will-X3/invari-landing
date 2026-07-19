@@ -178,7 +178,7 @@ export default function Features() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-xs font-body font-semibold text-primary tracking-widest uppercase">
+          <span className="text-xl font-body font-semibold text-primary tracking-widest uppercase">
             Platform Features
           </span>
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 text-foreground">
