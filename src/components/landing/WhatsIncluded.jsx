@@ -117,14 +117,14 @@ export default function WhatsIncluded() {
               className="text-xs font-body font-semibold tracking-widest uppercase mb-2"
               style={{ color: "#C9A227" }}
             >
-              Invari Core
+              Invari.CORE
             </span>
 
             <h3
               className="font-heading text-2xl font-bold mb-3"
               style={{ color: "#fff" }}
             >
-              Compliance Enforcement Engine
+              Compliance Enforcement Rules Engine
             </h3>
 
             <p
@@ -177,6 +177,7 @@ export default function WhatsIncluded() {
               ))}
             </div>
           </motion.div>
+
           {/* Free ERP Card */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
@@ -250,14 +251,14 @@ export default function WhatsIncluded() {
               className="text-xs font-body font-semibold tracking-widest uppercase mb-2"
               style={{ color: "#C9A227" }}
             >
-              Invari ERP
+              Invari.DERP
             </span>
 
             <h3
               className="font-heading text-2xl font-bold mb-3"
               style={{ color: "#fff" }}
             >
-              Compliance-Native ERP
+              Derterministic Compliance-Native ERP
             </h3>
 
             <p
@@ -327,6 +328,7 @@ export default function WhatsIncluded() {
               </p>
             </div>
           </motion.div>
+
           {/* Invari.SHOP Card */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
