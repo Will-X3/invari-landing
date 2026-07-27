@@ -373,7 +373,7 @@ export default function WhatsIncluded() {
                   textTransform: "uppercase",
                 }}
               >
-                Included
+                Included Free
               </span>
             </div>
 
