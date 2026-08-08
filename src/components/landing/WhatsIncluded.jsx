@@ -7,7 +7,7 @@ import {
   ArrowLeftRight,
   ClipboardList,
   Building2,
-  ShoppingBag,
+  Store,
   Package,
   CreditCard,
   KeyRound,
@@ -24,7 +24,7 @@ const erpModules = [
 ];
 
 const shopModules = [
-  { icon: ShoppingBag, label: "Regulated Commerce" },
+  { icon: Store, label: "Regulated Commerce" },
   { icon: Package, label: "Hardware Procurement" },
   { icon: CreditCard, label: "Subscription Management" },
   { icon: KeyRound, label: "Credentials & Tokens" },
@@ -56,15 +56,17 @@ export default function WhatsIncluded() {
             What's Included
           </span>
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 text-foreground">
-            Three Integrated Platform Layers.{" "}
-            <span className="text-primary">One Unified System.</span>
+            Three Platform Systems.{" "}
+            <span className="text-primary">One Governed Execution Kernel.</span>
           </h2>
+
           <p className="mt-4 text-lg font-body text-muted-foreground max-w-3xl mx-auto">
             Every licensed business receives the complete Invari platform:
-            Invari.CORE, the deterministic compliance engine; Invari.DERP, the
+            Invari.CORE, the compliance enforcement engine; Invari.DERP, the
             compliance-native ERP; and Invari.SHOP, the regulated commerce
-            layer. Together, they unify compliance, operations, and commerce
-            into a single governed system.
+            layer. All three execute on Invari.kOS — the governed execution
+            kernel that provides the shared foundation for identity, authority,
+            state, policy, execution, and proof.
           </p>
         </motion.div>
 
@@ -124,7 +126,7 @@ export default function WhatsIncluded() {
               className="font-heading text-2xl font-bold mb-3"
               style={{ color: "#fff" }}
             >
-              Compliance Enforcement Rules Engine
+              Compliance Enforcement Engine
             </h3>
 
             <p
@@ -137,19 +139,18 @@ export default function WhatsIncluded() {
                 transition: "color 0.3s ease",
               }}
             >
-              Every lifecycle event is validated before it is written. Invalid
-              actions are blocked before they exist — not flagged after the
-              fact, not caught in a quarterly audit, not discovered when an ATF
-              inspector is already on-site. A single enforcement finding can
-              cost $50,000–$200,000 in remediation, or your license entirely.
-              Invari makes that class of risk structurally impossible, not just
-              unlikely. Invari.CORE is the deterministic policy engine that
-              powers every layer of the platform. Before inventory changes,
-              transfers, orders, or customer transactions are committed, the
-              engine evaluates every state transition against applicable
-              regulations and business policy. Invalid actions are structurally
-              impossible, allowing compliance to emerge automatically from
-              system behavior rather than manual oversight.
+              Invari.CORE is the compliance enforcement engine running on
+              Invari.kOS — the platform's governed execution kernel. CORE
+              translates regulatory requirements and business policy into
+              deterministic constraints for regulated asset lifecycles,
+              transactions, custody, and records. Every lifecycle event is
+              validated before it is written. Invalid actions are blocked before
+              they exist — not flagged after the fact, not caught in a quarterly
+              audit, and not discovered when an ATF inspector is already
+              on-site. Before inventory changes, transfers, orders, or customer
+              transactions are committed, CORE evaluates the state transition
+              against the applicable policy. Valid operations execute. Invalid
+              operations do not.
             </p>
 
             <div className="mt-auto space-y-3">
@@ -254,13 +255,6 @@ export default function WhatsIncluded() {
               Invari.DERP
             </span>
 
-            <h3
-              className="font-heading text-2xl font-bold mb-3"
-              style={{ color: "#fff" }}
-            >
-              Derterministic Compliance-Native ERP
-            </h3>
-
             <p
               className="font-body text-sm leading-relaxed mb-6"
               style={{
@@ -271,14 +265,15 @@ export default function WhatsIncluded() {
                 transition: "color 0.3s ease",
               }}
             >
-              A full enterprise resource planning layer gated behind the same
-              compliance engine. Scaling your operation doesn't create new
-              compliance exposure — every ERP action is governed by the same
-              rules. Everything your business needs to operate is included.
-              Asset management, inventory, transfers, personnel, orders, and
-              business relationships all share the same compliance-native
-              foundation, allowing your operation to grow without adding
-              compliance complexity.
+              A full enterprise resource planning system running on Invari.kOS
+              and governed by Invari.CORE. Scaling your operation doesn't create
+              new compliance exposure — every ERP action executes through the
+              same governed foundation and is evaluated against the applicable
+              compliance rules. Everything your business needs to operate is
+              included. Asset management, inventory, transfers, personnel,
+              orders, and business relationships all share the same
+              compliance-native foundation, allowing your operation to grow
+              without adding compliance complexity.
             </p>
 
             {/* ERP module chips */}
@@ -389,7 +384,7 @@ export default function WhatsIncluded() {
                 transition: "background 0.3s ease",
               }}
             >
-              <ShoppingBag
+              <Store
                 className="w-6 h-6"
                 style={{
                   color: hoveredCard === 2 ? "#FACC15" : "#C9A227",
@@ -422,10 +417,11 @@ export default function WhatsIncluded() {
                 transition: "color 0.3s ease",
               }}
             >
-              Every business account includes access to Invari.SHOP—the
-              regulated commerce layer connecting procurement, subscriptions,
-              customer interactions, and governed transactions through the same
-              deterministic compliance engine powering your business.
+              Every business account includes access to Invari.SHOP — the
+              regulated commerce layer running on Invari.kOS and governed by
+              Invari.CORE. Procurement, subscriptions, customer interactions,
+              and governed transactions all execute through the same governed
+              foundation, with compliance enforced at the point of execution.
             </p>
 
             <div className="grid grid-cols-2 gap-3 mb-6">
