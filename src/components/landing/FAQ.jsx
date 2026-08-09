@@ -9,7 +9,7 @@ const faqs = [
   },
   {
     q: "What happens if ATF regulations change?",
-    a: "Policy bundles are versioned independently of the core infrastructure. When regulations change, the bundle updates and classifications are recertified — at no additional cost to you beyond Policy Bundle Subscription regardless of tier. Your system enforces current law automatically. You don't chase regulatory updates or retrain staff. The engine does it."
+    a: "Policy bundles are versioned independently of the core infrastructure. When regulations change, the bundle updates and classifications are recertified — at no additional cost to you beyond Policy Bundle Subscription regardless of tier. Your system enforces current law automatically. You don't chase regulatory updates or retrain staff. The OS does it."
   },
   {
     q: "We already have an ERP. Do we have to replace it?",

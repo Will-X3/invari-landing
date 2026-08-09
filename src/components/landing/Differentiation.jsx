@@ -21,7 +21,7 @@ const rows = [
     traditional: "$8,000–$15,000/mo separate cost",
     invari: "Included free",
     invariDetail:
-      "Every operational function — inventory, transfers, personnel, orders — governed by the same compliance engine at no additional charge.",
+      "Every operational function — inventory, transfers, personnel, orders — governed by the same compliance OS at no additional charge.",
   },
   {
     dimension: "Audit record",
@@ -55,7 +55,7 @@ export default function Differentiation() {
           </span>
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 text-foreground leading-tight">
             Not Another Compliance Tool —{" "}
-            <span className="text-primary">A Compliance Engine</span>
+            <span className="text-primary">A Compliance Operating System</span>
           </h2>
           <p className="mt-4 text-lg font-body text-muted-foreground max-w-2xl mx-auto">
             Every existing tool works the same way: allow the action, assess

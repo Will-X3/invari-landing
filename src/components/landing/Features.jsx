@@ -12,7 +12,7 @@ import {
 const features = [
   {
     icon: Workflow,
-    title: "Lifecycle Enforcement Engine",
+    title: "Compliance Operating System(.kOS)",
     desc: "Every action is validated before it is accepted. Illegal transitions are blocked automatically. Users are only shown valid next actions based on the firearm's lifecycle state.",
     benefits: [
       "Prevents accidental violations",
@@ -22,7 +22,7 @@ const features = [
   },
   {
     icon: Lock,
-    title: "Immutable Chain-of-Custody Ledger",
+    title: "Immutable Chain-of-Custody Ledger(.CORE)",
     desc: "Every event is recorded with cryptographic continuity. History cannot be silently altered. Every firearm maintains a provable lifecycle history.",
     benefits: [
       "Audit-ready at any time",

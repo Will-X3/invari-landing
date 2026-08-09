@@ -18,9 +18,9 @@ const metrics = [
     sub: "Accepted transitions and rejected attempts recorded in physically separate append-only stores",
   },
   {
-    value: "5",
+    value: "7",
     label: "Independent Patent Claims",
-    sub: "DAPA ledger, never-null custody, divergence lock, pre-outcome receipt, portable chain export",
+    sub: "DAPA ledger, never-null custody, divergence lock, pre-outcome receipt, portable chain export, goverened transport, kOS",
   },
   {
     value: "Unified",
