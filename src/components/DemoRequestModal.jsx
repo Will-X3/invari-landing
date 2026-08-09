@@ -72,7 +72,7 @@ export default function DemoRequestModal({ open, onClose }) {
               <div>
                 <textarea
                   name="message"
-                  rows="4"
+                  rows={4}
                   placeholder="Briefly describe your compliance workflow or needs..."
                   className="w-full rounded-xl border border-border px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition resize-none"
                 />
