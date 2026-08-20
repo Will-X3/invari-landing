@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "postinstall": "npx playwright install --with-deps chromium",
+    "build": "vite build && npx playwright install chromium",
     "postbuild": "node scripts/prerender.js && node scripts/indexnow-ping.js",
     "lint": "eslint . --quiet",
     "lint:fix": "eslint . --fix",
