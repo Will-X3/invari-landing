@@ -1,0 +1,13 @@
+# Invari
+
+> Invari builds deterministic compliance infrastructure for regulated industries — a runtime kernel (Invari.kOS) that mediates every state-mutating action (human, UI, or AI-originated) through a single, fail-closed evaluation path, so canonical state can only change via a governed, auditable decision.
+
+Invari.kOS is not a permissions layer bolted onto existing software — it is a kernel in the operating-system sense: the sole privileged authority over canonical state, composing event sourcing, hash-chained ledgers, kernel-style privilege separation, CQRS, and capability-based access control under one deterministic, fail-closed evaluation model (K=STRICT).
+
+## Core pages
+
+- [Home](https://www.invari.app/): Overview of Invari.kOS, the deterministic compliance runtime kernel for regulated industries.
+
+## About
+
+Invari Systems was founded by Will Williams and Coco Williams, building on lessons learned from a firearms-delivery startup where no existing infrastructure could reliably enforce regulatory transfer requirements at the point of transaction.
