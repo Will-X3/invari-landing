@@ -4,43 +4,43 @@ import { motion } from "framer-motion";
 const metrics = [
   {
     value: "0",
-    label: "Invalid State Transitions Possible",
-    sub: "Structurally blocked before persistence — not detected after",
+    label: "Invalid State Transitions Committed Through .kOS",
+    sub: "Structurally rejected before entering canonical state",
   },
   {
     value: "100%",
     label: "Lifecycle Traceability",
-    sub: "Every asset, every event, every actor — immutably recorded from first entry",
+    sub: "Every governed asset event and actor recorded in the canonical history",
   },
   {
     value: "2",
     label: "Ledgers per Transaction",
-    sub: "Accepted transitions and rejected attempts recorded in physically separate append-only stores",
+    sub: "Accepted transitions and rejected attempts recorded in separate immutable, hash-chained stores",
   },
   {
-    value: "7",
+    value: "5",
     label: "Independent Patent Claims",
-    sub: "DAPA ledger, never-null custody, divergence lock, pre-outcome receipt, portable chain export, goverened transport, kOS",
+    sub: "DAPA ledger, never-null custody, divergence lock, pre-outcome receipt, and portable full-chain export",
   },
   {
     value: "Unified",
     label: "All Bound Books Updated per Transfer",
-    sub: "Acquisition and disposition records for all parties written simultaneously in a single action",
+    sub: "Acquisition and disposition records for all governed parties resolved through the same state transition",
   },
   {
     value: "Zero",
-    label: "Exposed Enforcement API Surface",
-    sub: "The compliance engine cannot be reached externally — no attack surface outside the governed UI",
+    label: "Direct Write Paths Around .kOS",
+    sub: "No UI, AI, integration, or service can directly mutate canonical state",
   },
   {
-    value: "Always",
-    label: "Most Restrictive Valid Outcome",
-    sub: "Policy ambiguity and conflict never default to permissive — the system fails closed",
+    value: "Fail-Closed",
+    label: "K=STRICT Default",
+    sub: "Ambiguity never defaults to permissive — uncertain inputs resolve to the strictest defined outcome",
   },
   {
     value: "100%",
     label: "Operator-Owned Compliance History",
-    sub: "Full portable chain export verifiable without Invari's involvement, servers, or continued existence",
+    sub: "Portable full-chain export designed for independent verification without continued reliance on Invari",
   },
 ];
 

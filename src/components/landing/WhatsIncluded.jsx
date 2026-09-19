@@ -62,11 +62,12 @@ export default function WhatsIncluded() {
 
           <p className="mt-4 text-lg font-body text-muted-foreground max-w-3xl mx-auto">
             Every licensed business receives the complete Invari platform:
-            Invari.CORE, the compliance enforcement engine; Invari.DERP, the
+            Invari.kOS, the governed enforcement runtime; Invari.DERP, the
             compliance-native ERP; and Invari.SHOP, the regulated commerce
-            layer. All three execute on Invari.kOS — the governed execution
-            kernel that provides the shared foundation for identity, authority,
-            state, policy, execution, and proof.
+            layer. DERP and SHOP submit proposed state transitions to
+            Invari.kOS, which deterministically commits or rejects them.
+            Invari.CORE stores the resulting canonical outcomes; it does not
+            perform enforcement.
           </p>
         </motion.div>
 
@@ -119,14 +120,14 @@ export default function WhatsIncluded() {
               className="text-xs font-body font-semibold tracking-widest uppercase mb-2"
               style={{ color: "#C9A227" }}
             >
-              Invari.CORE
+              Invari.kOS
             </span>
 
             <h3
               className="font-heading text-2xl font-bold mb-3"
               style={{ color: "#fff" }}
             >
-              Compliance Enforcement Engine
+              Governed Enforcement Runtime
             </h3>
 
             <p
@@ -139,18 +140,15 @@ export default function WhatsIncluded() {
                 transition: "color 0.3s ease",
               }}
             >
-              Invari.CORE is the compliance enforcement engine running on
-              Invari.kOS — the platform's governed execution kernel. CORE
-              translates regulatory requirements and business policy into
-              deterministic constraints for regulated asset lifecycles,
-              transactions, custody, and records. Every lifecycle event is
-              validated before it is written. Invalid actions are blocked before
-              they exist — not flagged after the fact, not caught in a quarterly
-              audit, and not discovered when an ATF inspector is already
-              on-site. Before inventory changes, transfers, orders, or customer
-              transactions are committed, CORE evaluates the state transition
-              against the applicable policy. Valid operations execute. Invalid
-              operations do not.
+              Invari.kOS is the platform's governed enforcement runtime and sole
+              authority to mutate canonical state. Every proposed lifecycle
+              event — whether submitted by a human, UI, or AI — is evaluated
+              deterministically against canonical state and the applicable
+              versioned policy before any mutation can occur. Valid transitions
+              are committed; invalid transitions are rejected. Invari.CORE is
+              the durable data store for those outcomes — including accepted and
+              rejected transition records — not the component that performs
+              enforcement.
             </p>
 
             <div className="mt-auto space-y-3">
@@ -265,15 +263,16 @@ export default function WhatsIncluded() {
                 transition: "color 0.3s ease",
               }}
             >
-              A full enterprise resource planning system running on Invari.kOS
-              and governed by Invari.CORE. Scaling your operation doesn't create
-              new compliance exposure — every ERP action executes through the
-              same governed foundation and is evaluated against the applicable
-              compliance rules. Everything your business needs to operate is
-              included. Asset management, inventory, transfers, personnel,
-              orders, and business relationships all share the same
-              compliance-native foundation, allowing your operation to grow
-              without adding compliance complexity.
+              A full enterprise resource planning system running through
+              Invari.kOS. Scaling your operation doesn't create new compliance
+              exposure — every ERP action is proposed to the same enforcement
+              runtime and evaluated against the applicable compliance rules
+              before any resulting state change is persisted to Invari.CORE.
+              Everything your business needs to operate is included. Asset
+              management, inventory, transfers, personnel, orders, and business
+              relationships all share the same compliance-native foundation,
+              allowing your operation to grow without adding compliance
+              complexity.
             </p>
 
             {/* ERP module chips */}
@@ -418,10 +417,11 @@ export default function WhatsIncluded() {
               }}
             >
               Every business account includes access to Invari.SHOP — the
-              regulated commerce layer running on Invari.kOS and governed by
-              Invari.CORE. Procurement, subscriptions, customer interactions,
-              and governed transactions all execute through the same governed
-              foundation, with compliance enforced at the point of execution.
+              regulated commerce layer running through Invari.kOS. Procurement,
+              subscriptions, customer interactions, and governed transactions
+              are proposed to the same enforcement runtime, with compliance
+              enforced before any resulting state change is persisted to
+              Invari.CORE.
             </p>
 
             <div className="grid grid-cols-2 gap-3 mb-6">
